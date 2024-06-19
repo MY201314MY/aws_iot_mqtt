@@ -1,0 +1,1 @@
+https://docs.zephyrproject.org/latest/connectivity/networking/qemu_setup.html#networking-with-qemu
