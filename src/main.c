@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "creds/creds.h"
 #include "dhcp.h"
 
 #include <errno.h>
@@ -21,6 +20,7 @@
 #include <zephyr/posix/time.h>
 #include <zephyr/logging/log.h>
 
+#include "ca_certificate.h"
 
 #if defined(CONFIG_MBEDTLS_MEMORY_DEBUG)
 #include <mbedtls/memory_buffer_alloc.h>
@@ -28,7 +28,7 @@
 
 LOG_MODULE_REGISTER(aws, LOG_LEVEL_DBG);
 
-#define SNTP_SERVER "0.pool.ntp.org"
+#define SNTP_SERVER "ntp.aliyun.com"
 
 #define AWS_BROKER_PORT "8883"
 
@@ -54,37 +54,20 @@ static uint32_t messages_received_counter;
 static bool do_publish;	  /* Trigger client to publish */
 static bool do_subscribe; /* Trigger client to subscribe */
 
-#define TLS_TAG_DEVICE_CERTIFICATE 1
-#define TLS_TAG_DEVICE_PRIVATE_KEY 1
-#define TLS_TAG_AWS_CA_CERTIFICATE 2
+#define CA_CERTIFICATE_TAG 1
 
 static const sec_tag_t sec_tls_tags[] = {
-	TLS_TAG_DEVICE_CERTIFICATE,
-	TLS_TAG_AWS_CA_CERTIFICATE,
+	CA_CERTIFICATE_TAG,
 };
 
 static int setup_credentials(void)
 {
 	int ret;
 
-	ret = tls_credential_add(TLS_TAG_DEVICE_CERTIFICATE, TLS_CREDENTIAL_SERVER_CERTIFICATE,
-				 public_cert, public_cert_len);
+	ret = tls_credential_add(CA_CERTIFICATE_TAG, TLS_CREDENTIAL_CA_CERTIFICATE,
+				 broker_emqx_io_ca_crt, sizeof(broker_emqx_io_ca_crt));
 	if (ret < 0) {
 		LOG_ERR("Failed to add device certificate: %d", ret);
-		goto exit;
-	}
-
-	ret = tls_credential_add(TLS_TAG_DEVICE_PRIVATE_KEY, TLS_CREDENTIAL_PRIVATE_KEY,
-				 private_key, private_key_len);
-	if (ret < 0) {
-		LOG_ERR("Failed to add device private key: %d", ret);
-		goto exit;
-	}
-
-	ret = tls_credential_add(TLS_TAG_AWS_CA_CERTIFICATE, TLS_CREDENTIAL_CA_CERTIFICATE, ca_cert,
-				 ca_cert_len);
-	if (ret < 0) {
-		LOG_ERR("Failed to add device private key: %d", ret);
 		goto exit;
 	}
 

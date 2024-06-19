@@ -40,7 +40,8 @@
       "type_traits": "c",
       "new": "c",
       "typeinfo": "c",
-      "ca_certificate.h": "c"
+      "ca_certificate.h": "c",
+      "dhcp.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

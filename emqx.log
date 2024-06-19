@@ -1,0 +1,431 @@
+-- west build: running target run
+[1/14] Building C object CMakeFiles/app.dir/src/main.c.obj
+[2/14] Linking C static library app/libapp.a
+[3/14] Linking C executable zephyr/zephyr_pre0.elf
+[4/14] Generating linker.cmd
+[5/14] Generating gdt.bin
+[6/14] Generating gdt.o
+[7/14] Generating pagetables.bin
+[8/14] Generating irq_int_vector_map.bin, staticIdt.bin, irq_vectors_alloc.bin
+[9/14] Generating pagetables.o
+[10/14] Generating irq_vectors_alloc.o
+[11/14] Generating staticIdt.o
+[12/14] Generating irq_int_vector_map.o
+[13/14] Linking C executable zephyr/zephyr.elf
+Memory region         Used Size  Region Size  %age Used
+             RAM:      561184 B        31 MB      1.73%
+        IDT_LIST:          0 GB         2 KB      0.00%
+Generating files from /home/pi/example/aws_iot_mqtt/build/zephyr/zephyr.elf for board: qemu_x86
+[13/14] To exit from QEMU enter: 'CTRL+a, x'[QEMU] CPU: qemu32,+nx,+pae
+[0mSeaBIOS (version zephyr-v1.0.0-0-g31d4e0e-dirty-20200714_234759-fv-az50-zephyr)
+Booting from ROM..
+*** Booting Zephyr OS build v3.6.0-85-g8cd7337d696c ***
+[00:00:00.510,000] [0m<dbg> aws: sntp_sync_time: Acquired time from NTP server: 1718801111[0m
+[00:00:00.550,000] [0m<inf> aws: Resolved: 54.244.173.190:8883[0m
+[00:00:00.810,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3919: => handshake[0m
+[00:00:00.810,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:00.810,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output[0m
+[00:00:00.810,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_HELLO_REQUEST[0m
+[00:00:00.810,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:00.810,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output[0m
+[00:00:00.810,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_CLIENT_HELLO[0m
+[00:00:00.810,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0924: => write client hello[0m
+[00:00:00.810,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0728: client hello, current time: 1718801112[0m
+[00:00:00.810,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0486: dumping 'client hello, random bytes' (32 bytes)[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0486: 0000:  66 72 d2 d8 8f bb 68 5d b3 e8 68 c6 eb 68 97 8d  fr....h]..h..h..[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0486: 0010:  42 5f 3f 11 ed b0 aa ce ad 75 92 9e 87 8b d7 cf  B_?......u......[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0511: dumping 'session id' (0 bytes)[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0369: client hello, add ciphersuite: 003d, TLS-RSA-WITH-AES-256-CBC-SHA256[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0369: client hello, add ciphersuite: 0035, TLS-RSA-WITH-AES-256-CBC-SHA[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0369: client hello, add ciphersuite: 003c, TLS-RSA-WITH-AES-128-CBC-SHA256[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0369: client hello, add ciphersuite: 002f, TLS-RSA-WITH-AES-128-CBC-SHA[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0387: adding EMPTY_RENEGOTIATION_INFO_SCSV[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0396: client hello, got 5 cipher suites[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0040: client hello, adding server name extension: broker.emqx.io[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9280: adding signature_algorithms extension[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9300: got signature scheme [601] rsa_pkcs1_sha512[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9309: sent signature scheme [601] rsa_pkcs1_sha512[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9300: got signature scheme [501] rsa_pkcs1_sha384[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9309: sent signature scheme [501] rsa_pkcs1_sha384[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9300: got signature scheme [401] rsa_pkcs1_sha256[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9309: sent signature scheme [401] rsa_pkcs1_sha256[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0688: client hello, total extension length: 35[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0690: dumping 'client hello extensions' (35 bytes)[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0690: 0000:  00 23 00 00 00 13 00 11 00 00 0e 62 72 6f 6b 65  .#.........broke[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0690: 0010:  72 2e 65 6d 71 78 2e 69 6f 00 0d 00 08 00 06 06  r.emqx.io.......[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0690: 0020:  01 05 01                                         ...[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2788: => write handshake message[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2948: => write record[0m
+[00:00:00.820,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3032: output record: msgtype = 22, version = [3:3], msglen = 90[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3085: <= write record[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2909: <= write handshake message[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:1012: <= write client hello[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2372: message length: 95, out_left: 95[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2379: ssl->f_send() returned 95 (-0xffffffa1)[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2406: <= flush output[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_HELLO[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1193: => parse server hello[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5[0m
+[00:00:00.820,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3930: <= handshake[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3919: => handshake[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_HELLO[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1193: => parse server hello[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 5 (-0xfffffffb)[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input[0m
+[00:00:01.150,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3869: input record: msgtype = 22, version = [0x303], msglen = 81[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 5, nb_want: 86[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 5, nb_want: 86[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 81 (-0xffffffaf)[0m
+[00:00:01.150,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input[0m
+[00:00:01.150,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3242: handshake message: msglen = 81, type = 2, hslen = 81[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4194: <= read record[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1267: dumping 'server hello, version' (2 bytes)[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1267: 0000:  03 03                                            ..[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1287: server hello, current time: 196709477[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1297: dumping 'server hello, random bytes' (32 bytes)[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1297: 0000:  0b b9 8c 65 25 86 9f 86 f6 4e c9 86 b8 bf c0 5a  ...e%....N.....Z[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1297: 0010:  d2 b0 c7 3c 44 0f 60 19 44 4f 57 4e 47 52 44 01  ...<D.`.DOWNGRD.[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1360: server hello, session id len.: 32[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1361: dumping 'server hello, session id' (32 bytes)[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1361: 0000:  97 22 21 7c 2f c0 16 75 d8 77 87 af 00 b4 30 1a  ."!|/..u.w....0.[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1361: 0010:  5d 3a 68 6d f6 bf e7 1c 0e 9c 0a 9f cb da 35 de  ]:hm..........5.[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1385: no session has been resumed[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1388: server hello, chosen ciphersuite: 003d[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1389: server hello, compress alg.: 0[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1424: server hello, chosen ciphersuite: TLS-RSA-WITH-AES-256-CBC-SHA256[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1445: server hello, total extension length: 5[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1465: found renegotiation extension[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1661: <= parse server hello[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_CERTIFICATE[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7510: => parse certificate[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 5 (-0xfffffffb)[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input[0m
+[00:00:01.160,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3869: input record: msgtype = 22, version = [0x303], msglen = 2784[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 5, nb_want: 2789[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 5, nb_want: 2789[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 2639 (-0xfffff5b1)[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 2644, nb_want: 2789[0m
+[00:00:01.160,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3930: <= handshake[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3919: => handshake[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_CERTIFICATE[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7510: => parse certificate[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 2644, nb_want: 5[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input[0m
+[00:00:01.410,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3869: input record: msgtype = 22, version = [0x303], msglen = 2784[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 2644, nb_want: 2789[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 2644, nb_want: 2789[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 145 (-0xffffff6f)[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input[0m
+[00:00:01.410,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3242: handshake message: msglen = 2784, type = 11, hslen = 2784[0m
+[00:00:01.410,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4194: <= read record[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: peer certificate #1:[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: cert. version     : 3[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: serial number     : 08:E1:A5:DB:AB:36:EA:FE:7A:4F:59:9F:BF:70:DF:4C[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: issuer name       : C=US, O=DigiCert Inc, OU=www.digicert.com, CN=RapidSSL TLS RSA CA G1[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: subject name      : CN=*.emqx.io[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: issued  on        : 2023-08-08 00:00:00[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: expires on        : 2024-08-08 23:59:59[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: signed using      : RSA with SHA-256[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: RSA key size      : 2048 bits[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: basic constraints : CA=false[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: subject alt name  :[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:     dNSName : *.emqx.io[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:     dNSName : emqx.io[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: key usage         : Digital Signature, Key Encipherment[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: ext key usage     : TLS Web Server Authentication, TLS Web Client Authentication[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: certificate policies : ???[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: value of 'crt->rsa.N' (2048 bits) is:[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  83 e8 52 d8 06 cf 35 fb 16 10 03 46 76 97 33 b8[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  f7 c4 3b 84 02 0d 94 b0 44 6b 43 13 c4 10 61 11[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  b6 21 07 8c 26 2b db e8 3f 86 58 b8 2e 0e 13 06[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  8a 50 a3 67 68 87 cd 90 ba 05 83 00 85 32 b4 0d[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  85 cc 22 ba 0b d6 cd d2 f3 aa 5d 59 15 08 fd dd[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  de 7d 39 2a f1 c5 d4 9c 47 87 e9 2e 36 36 1e e8[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  c4 45 d7 51 ba c2 4c b1 3e db 16 28 7e f7 b7 df[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  27 6f 93 c2 2c ef 86 37 f8 60 3b c1 6e 00 98 de[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  82 44 05 85 44 f1 c6 a9 ed 1b 3c e2 9d 0b 0e 6c[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  06 a5 c2 5c eb 30 d9 ff bd 9f a5 6e 51 81 ec c3[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  ce 40 96 61 2a f6 1e c2 35 f4 80 f9 d3 6d 7c 53[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  58 98 7f b2 7d 31 b1 10 6c da ba 9d ae d0 a8 73[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  60 d8 f6 e5 b3 e8 31 99 9d b0 5a 4c e1 6b 43 20[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  99 c3 5f 92 27 d1 96 4e 28 e6 e0 50 d5 67 0c 5b[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  cc 36 5a 33 0f df b9 af ae b5 44 88 bd eb 4b 9b[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  34 d6 da 56 5d 8a 01 09 8f 64 97 51 47 37 d3 45[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: value of 'crt->rsa.E' (17 bits) is:[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  01 00 01[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: peer certificate #2:[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: cert. version     : 3[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: serial number     : 0B:25:94:22:CE:D9:81:2A:15:A0:4E:99:52:8A:0E:FA[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: issuer name       : C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root G2[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: subject name      : C=US, O=DigiCert Inc, OU=www.digicert.com, CN=RapidSSL TLS RSA CA G1[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: issued  on        : 2017-11-02 12:24:33[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: expires on        : 2027-11-02 12:24:33[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: signed using      : RSA with SHA-256[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: RSA key size      : 2048 bits[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: basic constraints : CA=true, max_pathlen=0[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: key usage         : Digital Signature, Key Cert Sign, CRL Sign[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: ext key usage     : TLS Web Server Authentication, TLS Web Client Authentication[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: certificate policies : ???, ???, ???, ???[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: value of 'crt->rsa.N' (2048 bits) is:[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  bf b9 59 25 44 12 35 16 e2 5d 50 49 05 0a e0 cb[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  fc 8d da 25 08 9a 67 a6 a2 6d 11 e3 6a 9f da a7[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  dc f2 d5 a6 0d ae 98 5e ed 87 1a 37 03 28 3e c6[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  6f 5c 34 7e 84 d2 4e a3 d8 1b 80 e6 15 4c fa bc[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  81 77 3c e0 8e f9 60 a3 87 89 50 38 36 b2 49 41[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  9e a9 da c2 50 ca ac 7a d0 79 04 22 3c c8 37 ed[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  4b 40 b7 d7 4e 5a 6e ce 74 e8 39 ad 61 c9 30 f4[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  cb 28 ad 17 23 98 c1 44 4c fb f0 88 f0 53 45 32[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  90 61 c3 6d a1 a5 e0 10 90 e3 8b 9a ca 93 e5 06[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  49 61 e8 a4 ee a9 6f 9f c8 1f 0f e5 dd 0e 79 37[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  92 4b ae bb 47 86 fa fb b2 ad 21 ab e6 e5 f9 2d[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  18 45 5a 5b f5 cc 54 03 72 1f c4 2a 67 75 eb 79[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  ba cf fc 9c c7 fa 8b 6b dc f2 bc 82 dc ed c4 29[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  6f e9 3b 4c ba da f5 61 35 ed 83 d2 9f d0 0d 8c[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  6f 84 0a 8f 4f 0d 6d cd f6 5c 21 29 00 8d bf 0d[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  60 1a 88 2e c8 24 2e ec 71 3b 06 75 bc 79 24 85[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: value of 'crt->rsa.E' (17 bits) is:[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  01 00 01[0m
+[00:00:01.420,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7277: Use configuration-specific verification callback[0m
+[00:00:01.440,000] [1;31m<err> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7330: x509_verify_cert() returned -9984 (-0x2700)[0m
+[00:00:01.440,000] [1;31m<err> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7395: got no CA chain[0m
+[00:00:01.440,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5103: => send alert message[0m
+[00:00:01.440,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5104: send alert level=2 message=48[0m
+[00:00:01.440,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2948: => write record[0m
+[00:00:01.440,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3032: output record: msgtype = 21, version = [3:3], msglen = 2[0m
+[00:00:01.440,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:01.440,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2372: message length: 7, out_left: 7[0m
+[00:00:01.440,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2379: ssl->f_send() returned 7 (-0xfffffff9)[0m
+[00:00:01.440,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2406: <= flush output[0m
+[00:00:01.440,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3085: <= write record[0m
+[00:00:01.440,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5115: <= send alert message[0m
+[00:00:01.440,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7434: ! Certificate verification flags 00000008[0m
+[00:00:01.440,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3930: <= handshake[0m
+[00:00:01.440,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5974: => write close notify[0m
+[00:00:01.440,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5985: <= write close notify[0m
+[00:00:01.440,000] [1;31m<err> aws: Failed to connect: -113 backoff delay: 438 ms[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3919: => handshake[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_HELLO_REQUEST[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_CLIENT_HELLO[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0924: => write client hello[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0728: client hello, current time: 1718801113[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0486: dumping 'client hello, random bytes' (32 bytes)[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0486: 0000:  66 72 d2 d9 08 75 d0 9e d8 60 5d 98 c5 2b 72 8f  fr...u...`]..+r.[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0486: 0010:  f9 f3 81 2e 93 5c d2 76 d5 12 67 92 84 5f 7f 2e  .....\.v..g.._..[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0511: dumping 'session id' (0 bytes)[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0369: client hello, add ciphersuite: 003d, TLS-RSA-WITH-AES-256-CBC-SHA256[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0369: client hello, add ciphersuite: 0035, TLS-RSA-WITH-AES-256-CBC-SHA[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0369: client hello, add ciphersuite: 003c, TLS-RSA-WITH-AES-128-CBC-SHA256[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0369: client hello, add ciphersuite: 002f, TLS-RSA-WITH-AES-128-CBC-SHA[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0387: adding EMPTY_RENEGOTIATION_INFO_SCSV[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0396: client hello, got 5 cipher suites[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0040: client hello, adding server name extension: broker.emqx.io[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9280: adding signature_algorithms extension[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9300: got signature scheme [601] rsa_pkcs1_sha512[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9309: sent signature scheme [601] rsa_pkcs1_sha512[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9300: got signature scheme [501] rsa_pkcs1_sha384[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9309: sent signature scheme [501] rsa_pkcs1_sha384[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9300: got signature scheme [401] rsa_pkcs1_sha256[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9309: sent signature scheme [401] rsa_pkcs1_sha256[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0688: client hello, total extension length: 35[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0690: dumping 'client hello extensions' (35 bytes)[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0690: 0000:  00 23 00 00 00 13 00 11 00 00 0e 62 72 6f 6b 65  .#.........broke[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0690: 0010:  72 2e 65 6d 71 78 2e 69 6f 00 0d 00 08 00 06 06  r.emqx.io.......[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0690: 0020:  01 05 01                                         ...[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2788: => write handshake message[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2948: => write record[0m
+[00:00:02.130,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3032: output record: msgtype = 22, version = [3:3], msglen = 90[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3085: <= write record[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2909: <= write handshake message[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:1012: <= write client hello[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:02.130,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2372: message length: 95, out_left: 95[0m
+[00:00:02.140,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2379: ssl->f_send() returned 95 (-0xffffffa1)[0m
+[00:00:02.140,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2406: <= flush output[0m
+[00:00:02.140,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_HELLO[0m
+[00:00:02.140,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1193: => parse server hello[0m
+[00:00:02.140,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record[0m
+[00:00:02.140,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:02.140,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5[0m
+[00:00:02.140,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5[0m
+[00:00:02.140,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3930: <= handshake[0m
+[00:00:02.450,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3919: => handshake[0m
+[00:00:02.450,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:02.450,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output[0m
+[00:00:02.450,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_HELLO[0m
+[00:00:02.460,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1193: => parse server hello[0m
+[00:00:02.460,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record[0m
+[00:00:02.460,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:02.460,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5[0m
+[00:00:02.480,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5[0m
+[00:00:02.480,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 5 (-0xfffffffb)[0m
+[00:00:02.480,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input[0m
+[00:00:02.480,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3869: input record: msgtype = 22, version = [0x303], msglen = 81[0m
+[00:00:02.480,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:02.480,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 5, nb_want: 86[0m
+[00:00:02.480,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 5, nb_want: 86[0m
+[00:00:02.490,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 81 (-0xffffffaf)[0m
+[00:00:02.490,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input[0m
+[00:00:02.490,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3242: handshake message: msglen = 81, type = 2, hslen = 81[0m
+[00:00:02.500,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4194: <= read record[0m
+[00:00:02.510,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1267: dumping 'server hello, version' (2 bytes)[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1267: 0000:  03 03                                            ..[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1287: server hello, current time: 1590149756[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1297: dumping 'server hello, random bytes' (32 bytes)[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1297: 0000:  5e c7 c2 7c 18 bc 1c f8 9c c0 19 58 3c d7 b6 72  ^..|.......X<..r[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1297: 0010:  a2 a9 16 42 b8 89 23 f0 44 4f 57 4e 47 52 44 01  ...B..#.DOWNGRD.[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1360: server hello, session id len.: 32[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1361: dumping 'server hello, session id' (32 bytes)[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1361: 0000:  3c 5c 52 c0 a2 08 32 5f 56 e0 8a 15 e5 21 b1 a5  <\R...2_V....!..[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1361: 0010:  06 2b 9c 97 e8 bc 38 df bf 36 21 a8 75 21 71 0c  .+....8..6!.u!q.[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1385: no session has been resumed[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1388: server hello, chosen ciphersuite: 003d[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1389: server hello, compress alg.: 0[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1424: server hello, chosen ciphersuite: TLS-RSA-WITH-AES-256-CBC-SHA256[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1445: server hello, total extension length: 5[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1465: found renegotiation extension[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1661: <= parse server hello[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_CERTIFICATE[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7510: => parse certificate[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 5 (-0xfffffffb)[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input[0m
+[00:00:02.520,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3869: input record: msgtype = 22, version = [0x303], msglen = 2784[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:02.520,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 5, nb_want: 2789[0m
+[00:00:02.530,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 5, nb_want: 2789[0m
+[00:00:02.530,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 2639 (-0xfffff5b1)[0m
+[00:00:02.530,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 2644, nb_want: 2789[0m
+[00:00:02.530,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3930: <= handshake[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3919: => handshake[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_CERTIFICATE[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7510: => parse certificate[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 2644, nb_want: 5[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3869: input record: msgtype = 22, version = [0x303], msglen = 2784[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 2644, nb_want: 2789[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 2644, nb_want: 2789[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 145 (-0xffffff6f)[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3242: handshake message: msglen = 2784, type = 11, hslen = 2784[0m
+[00:00:02.830,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4194: <= read record[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: peer certificate #1:[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: cert. version     : 3[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: serial number     : 08:E1:A5:DB:AB:36:EA:FE:7A:4F:59:9F:BF:70:DF:4C[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: issuer name       : C=US, O=DigiCert Inc, OU=www.digicert.com, CN=RapidSSL TLS RSA CA G1[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: subject name      : CN=*.emqx.io[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: issued  on        : 2023-08-08 00:00:00[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: expires on        : 2024-08-08 23:59:59[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: signed using      : RSA with SHA-256[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: RSA key size      : 2048 bits[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: basic constraints : CA=false[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: subject alt name  :[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:     dNSName : *.emqx.io[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:     dNSName : emqx.io[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: key usage         : Digital Signature, Key Encipherment[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: ext key usage     : TLS Web Server Authentication, TLS Web Client Authentication[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: certificate policies : ???[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: value of 'crt->rsa.N' (2048 bits) is:[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  83 e8 52 d8 06 cf 35 fb 16 10 03 46 76 97 33 b8[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  f7 c4 3b 84 02 0d 94 b0 44 6b 43 13 c4 10 61 11[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  b6 21 07 8c 26 2b db e8 3f 86 58 b8 2e 0e 13 06[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  8a 50 a3 67 68 87 cd 90 ba 05 83 00 85 32 b4 0d[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  85 cc 22 ba 0b d6 cd d2 f3 aa 5d 59 15 08 fd dd[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  de 7d 39 2a f1 c5 d4 9c 47 87 e9 2e 36 36 1e e8[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  c4 45 d7 51 ba c2 4c b1 3e db 16 28 7e f7 b7 df[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  27 6f 93 c2 2c ef 86 37 f8 60 3b c1 6e 00 98 de[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  82 44 05 85 44 f1 c6 a9 ed 1b 3c e2 9d 0b 0e 6c[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  06 a5 c2 5c eb 30 d9 ff bd 9f a5 6e 51 81 ec c3[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  ce 40 96 61 2a f6 1e c2 35 f4 80 f9 d3 6d 7c 53[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  58 98 7f b2 7d 31 b1 10 6c da ba 9d ae d0 a8 73[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  60 d8 f6 e5 b3 e8 31 99 9d b0 5a 4c e1 6b 43 20[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  99 c3 5f 92 27 d1 96 4e 28 e6 e0 50 d5 67 0c 5b[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  cc 36 5a 33 0f df b9 af ae b5 44 88 bd eb 4b 9b[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  34 d6 da 56 5d 8a 01 09 8f 64 97 51 47 37 d3 45[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: value of 'crt->rsa.E' (17 bits) is:[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  01 00 01[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: peer certificate #2:[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: cert. version     : 3[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: serial number     : 0B:25:94:22:CE:D9:81:2A:15:A0:4E:99:52:8A:0E:FA[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: issuer name       : C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root G2[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: subject name      : C=US, O=DigiCert Inc, OU=www.digicert.com, CN=RapidSSL TLS RSA CA G1[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: issued  on        : 2017-11-02 12:24:33[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: expires on        : 2027-11-02 12:24:33[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: signed using      : RSA with SHA-256[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: RSA key size      : 2048 bits[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: basic constraints : CA=true, max_pathlen=0[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: key usage         : Digital Signature, Key Cert Sign, CRL Sign[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: ext key usage     : TLS Web Server Authentication, TLS Web Client Authentication[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: certificate policies : ???, ???, ???, ???[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: value of 'crt->rsa.N' (2048 bits) is:[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  bf b9 59 25 44 12 35 16 e2 5d 50 49 05 0a e0 cb[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  fc 8d da 25 08 9a 67 a6 a2 6d 11 e3 6a 9f da a7[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  dc f2 d5 a6 0d ae 98 5e ed 87 1a 37 03 28 3e c6[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  6f 5c 34 7e 84 d2 4e a3 d8 1b 80 e6 15 4c fa bc[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  81 77 3c e0 8e f9 60 a3 87 89 50 38 36 b2 49 41[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  9e a9 da c2 50 ca ac 7a d0 79 04 22 3c c8 37 ed[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  4b 40 b7 d7 4e 5a 6e ce 74 e8 39 ad 61 c9 30 f4[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  cb 28 ad 17 23 98 c1 44 4c fb f0 88 f0 53 45 32[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  90 61 c3 6d a1 a5 e0 10 90 e3 8b 9a ca 93 e5 06[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  49 61 e8 a4 ee a9 6f 9f c8 1f 0f e5 dd 0e 79 37[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  92 4b ae bb 47 86 fa fb b2 ad 21 ab e6 e5 f9 2d[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  18 45 5a 5b f5 cc 54 03 72 1f c4 2a 67 75 eb 79[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  ba cf fc 9c c7 fa 8b 6b dc f2 bc 82 dc ed c4 29[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  6f e9 3b 4c ba da f5 61 35 ed 83 d2 9f d0 0d 8c[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  6f 84 0a 8f 4f 0d 6d cd f6 5c 21 29 00 8d bf 0d[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  60 1a 88 2e c8 24 2e ec 71 3b 06 75 bc 79 24 85[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: value of 'crt->rsa.E' (17 bits) is:[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  01 00 01[0m
+[00:00:02.830,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7277: Use configuration-specific verification callback[0m
+[00:00:02.840,000] [1;31m<err> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7330: x509_verify_cert() returned -9984 (-0x2700)[0m
+[00:00:02.840,000] [1;31m<err> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7395: got no CA chain[0m
+[00:00:02.840,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5103: => send alert message[0m
+[00:00:02.840,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5104: send alert level=2 message=48[0m
+[00:00:02.840,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2948: => write record[0m
+[00:00:02.840,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3032: output record: msgtype = 21, version = [3:3], msglen = 2[0m
+[00:00:02.840,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output[0m
+[00:00:02.840,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2372: message length: 7, out_left: 7[0m
+[00:00:02.840,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2379: ssl->f_send() returned 7 (-0xfffffff9)[0m
+[00:00:02.840,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2406: <= flush output[0m
+[00:00:02.840,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3085: <= write record[0m
+[00:00:02.840,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5115: <= send alert message[0m
+[00:00:02.840,000] [0m<inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7434: ! Certificate verification flags 00000008[0m
+[00:00:02.840,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3930: <= handshake[0m
+[00:00:02.840,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5974: => write close notify[0m
+[00:00:02.840,000] [1;33m<wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5985: <= write close notify[0m
