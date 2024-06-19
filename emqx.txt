@@ -1,0 +1,399 @@
+(.venv) pi@inspiron:~/example/aws_iot_mqtt$ west build -t run
+-- west build: running target run
+[0/1] To exit from QEMU enter: 'CTRL+a, x'[QEMU] CPU: qemu32,+nx,+pae
+SeaBIOS (version zephyr-v1.0.0-0-g31d4e0e-dirty-20200714_234759-fv-az50-zephyr)
+Booting from ROM..
+
+
+*** Booting Zephyr OS build v3.6.0-85-g8cd7337d696c ***
+uart:~$ mqtts connect 
+[00:00:04.590,000] <inf> net_mqtts_client_sample: Resolved: 54.244.173.190:8883
+[00:00:04.590,000] <inf> net_mqtts_client_sample: ret:0
+[00:00:04.590,000] <dbg> net_mqtts_client_sample: mqtt_client_try_connect: retry:10...
+[00:00:04.830,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3919: => handshake
+[00:00:04.830,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:04.830,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:04.830,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_HELLO_REQUEST
+[00:00:04.830,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:04.830,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:04.830,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_CLIENT_HELLO
+[00:00:04.830,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0924: => write client hello
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0486: dumping 'client hello, random bytes' (32 bytes)
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0486: 0000:  b0 f4 62 3d f2 a3 18 6f a6 bb 84 68 f0 63 0a df  ..b=...o...h.c..
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0486: 0010:  ab aa 70 1b 42 43 f7 7e b9 8f 29 17 ca fd 53 b4  ..p.BC.~..)...S.
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0511: dumping 'session id' (0 bytes)
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0369: client hello, add ciphersuite: 003d, TLS-RSA-WITH-AES-256-CBC-SHA256
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0369: client hello, add ciphersuite: 0035, TLS-RSA-WITH-AES-256-CBC-SHA
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0369: client hello, add ciphersuite: 003c, TLS-RSA-WITH-AES-128-CBC-SHA256
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0369: client hello, add ciphersuite: 002f, TLS-RSA-WITH-AES-128-CBC-SHA
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0387: adding EMPTY_RENEGOTIATION_INFO_SCSV
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0396: client hello, got 5 cipher suites
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9280: adding signature_algorithms extension
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9300: got signature scheme [601] rsa_pkcs1_sha512
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9309: sent signature scheme [601] rsa_pkcs1_sha512
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9300: got signature scheme [501] rsa_pkcs1_sha384
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9309: sent signature scheme [501] rsa_pkcs1_sha384
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9300: got signature scheme [401] rsa_pkcs1_sha256
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:9309: sent signature scheme [401] rsa_pkcs1_sha256
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:0272: client hello, adding max_fragment_length extension
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0688: client hello, total extension length: 17
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0690: dumping 'client hello extensions' (17 bytes)
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0690: 0000:  00 11 00 0d 00 08 00 06 06 01 05 01 04 01 00 01  ................
+[00:00:04.830,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:0690: 0010:  00                                               .
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2788: => write handshake message
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2948: => write record
+[00:00:04.840,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3032: output record: msgtype = 22, version = [3:3], msglen = 72
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3085: <= write record
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2909: <= write handshake message
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_client.c:1012: <= write client hello
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2372: message length: 77, out_left: 77
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2379: ssl->f_send() returned 77 (-0xffffffb3)
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2406: <= flush output
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_HELLO
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1193: => parse server hello
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5
+[00:00:04.840,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3930: <= handshake
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3919: => handshake
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_HELLO
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1193: => parse server hello
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 5 (-0xfffffffb)
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3869: input record: msgtype = 22, version = [0x303], msglen = 86
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 5, nb_want: 91
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 5, nb_want: 91
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 86 (-0xffffffaa)
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3242: handshake message: msglen = 86, type = 2, hslen = 86
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4194: <= read record
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1267: dumping 'server hello, version' (2 bytes)
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1267: 0000:  03 03                                            ..
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1287: server hello, current time: 4024679018
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1297: dumping 'server hello, random bytes' (32 bytes)
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1297: 0000:  ef e3 ba 6a 42 68 05 98 aa ce 66 26 e2 c5 3d 97  ...jBh....f&..=.
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1297: 0010:  49 f4 08 49 6f db 62 dc 44 4f 57 4e 47 52 44 01  I..Io.b.DOWNGRD.
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1360: server hello, session id len.: 32
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1361: dumping 'server hello, session id' (32 bytes)
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1361: 0000:  96 7c 18 5c 7d 84 1a bb 1d f6 99 92 62 a9 90 24  .|.\}.......b..$
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1361: 0010:  ce 5f 87 5d fb 37 f9 20 dd 6f d4 bd f5 d2 5c 99  ._.].7. .o....\.
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1385: no session has been resumed
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1388: server hello, chosen ciphersuite: 003d
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1389: server hello, compress alg.: 0
+[00:00:05.280,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1424: server hello, chosen ciphersuite: TLS-RSA-WITH-AES-256-CBC-SHA256
+[00:00:05.280,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1445: server hello, total extension length: 10
+[00:00:05.290,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1465: found renegotiation extension
+[00:00:05.290,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1479: found max_fragment_length extension
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:1661: <= parse server hello
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_CERTIFICATE
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7510: => parse certificate
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 5 (-0xfffffffb)
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input
+[00:00:05.290,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3869: input record: msgtype = 22, version = [0x303], msglen = 2784
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 5, nb_want: 2789
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 5, nb_want: 2789
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 2634 (-0xfffff5b6)
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 2639, nb_want: 2789
+[00:00:05.290,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3930: <= handshake
+--- 69 messages dropped ---
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  6f 5c 34 7e 84 d2 4e a3 d8 1b 80 e6 15 4c fa bc
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  81 77 3c e0 8e f9 60 a3 87 89 50 38 36 b2 49 41
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  9e a9 da c2 50 ca ac 7a d0 79 04 22 3c c8 37 ed
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  4b 40 b7 d7 4e 5a 6e ce 74 e8 39 ad 61 c9 30 f4
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  cb 28 ad 17 23 98 c1 44 4c fb f0 88 f0 53 45 32
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  90 61 c3 6d a1 a5 e0 10 90 e3 8b 9a ca 93 e5 06
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  49 61 e8 a4 ee a9 6f 9f c8 1f 0f e5 dd 0e 79 37
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  92 4b ae bb 47 86 fa fb b2 ad 21 ab e6 e5 f9 2d
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  18 45 5a 5b f5 cc 54 03 72 1f c4 2a 67 75 eb 79
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  ba cf fc 9c c7 fa 8b 6b dc f2 bc 82 dc ed c4 29
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  6f e9 3b 4c ba da f5 61 35 ed 83 d2 9f d0 0d 8c
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  6f 84 0a 8f 4f 0d 6d cd f6 5c 21 29 00 8d bf 0d
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  60 1a 88 2e c8 24 2e ec 71 3b 06 75 bc 79 24 85
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193: value of 'crt->rsa.E' (17 bits) is:
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7193:  01 00 01
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7623: <= parse certificate
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_KEY_EXCHANGE
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:2090: => parse server key exchange
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:2094: <= skip parse server key exchange
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_CERTIFICATE_REQUEST
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:2499: => parse certificate request
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 5 (-0xfffffffb)
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input
+[00:00:05.570,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3869: input record: msgtype = 22, version = [0x303], msglen = 4
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 5, nb_want: 9
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 5, nb_want: 9
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 4 (-0xfffffffc)
+[00:00:05.570,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input
+[00:00:05.580,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3242: handshake message: msglen = 4, type = 14, hslen = 4
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4194: <= read record
+[00:00:05.580,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:2525: got no certificate request
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:2663: <= parse certificate request
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_HELLO_DONE
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:2674: => parse server hello done
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4190: reuse previously read message
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4194: <= read record
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:2702: <= parse server hello done
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_CLIENT_CERTIFICATE
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:6915: => write certificate
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:6926: <= skip write certificate
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_CLIENT_KEY_EXCHANGE
+[00:00:05.580,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:2717: => write client key exchange
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2788: => write handshake message
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2948: => write record
+[00:00:05.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3032: output record: msgtype = 22, version = [3:3], msglen = 262
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2372: message length: 267, out_left: 267
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2379: ssl->f_send() returned 267 (-0xfffffef5)
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2406: <= flush output
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3085: <= write record
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2909: <= write handshake message
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:3212: <= write client key exchange
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_CERTIFICATE_VERIFY
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:3260: => write certificate verify
+[00:00:05.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:6529: => derive keys
+[00:00:05.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:6512: dumping 'premaster secret' (48 bytes)
+[00:00:05.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:6512: 0000:  03 03 80 52 e7 b2 9d 0f 29 a6 11 1f 2e 5a 26 cb  ...R....)....Z&.
+[00:00:05.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:6512: 0010:  dd 0c 69 81 3e d9 16 10 2a 12 50 f9 f4 48 03 de  ..i.>...*.P..H..
+[00:00:05.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:6512: 0020:  3e 56 fa ab 94 39 0e 05 52 32 b8 33 e5 8a 4c 8e  >V...9..R2.3..L.
+[00:00:05.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:8261: ciphersuite = TLS-RSA-WITH-AES-256-CBC-SHA256
+[00:00:05.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:8263: dumping 'master secret' (48 bytes)
+[00:00:05.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:8263: 0000:  13 8e 58 d7 48 fa d5 bf 9f 5c d4 50 ec 9b 65 09  ..X.H....\.P..e.
+[00:00:05.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:8263: 0010:  49 a0 51 84 9e d6 67 77 e8 ac 04 19 6a 65 e7 a9  I.Q...gw....je..
+[00:00:05.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:8263: 0020:  fc 73 9e cd e5 d9 d0 8f 68 74 88 37 47 91 38 6c  .s......ht.7G.8l
+[00:00:05.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:8385: keylen: 32, minlen: 64, ivlen: 16, maclen: 32
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:6580: <= derive keys
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:3282: <= skip write certificate verify
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_CLIENT_CHANGE_CIPHER_SPEC
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5124: => write change cipher spec
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2788: => write handshake message
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2948: => write record
+[00:00:05.600,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3032: output record: msgtype = 20, version = [3:3], msglen = 1
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2372: message length: 6, out_left: 6
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2379: ssl->f_send() returned 6 (-0xfffffffa)
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2406: <= flush output
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3085: <= write record
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2909: <= write handshake message
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5137: <= write change cipher spec
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_CLIENT_FINISHED
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7853: => write finished
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7688: => calc finished tls
+[00:00:05.600,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7715: dumping 'calc finished result' (12 bytes)
+[00:00:05.600,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7715: 0000:  ba d5 11 b5 bd 75 de d7 6e f5 1c c5              .....u..n...
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7719: <= calc finished
+[00:00:05.600,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7902: switching to new transform spec for outbound data
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2788: => write handshake message
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2948: => write record
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:0937: => encrypt buf
+[00:00:05.600,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:1308: before encrypt: msglen = 64, including 16 bytes of IV and 16 bytes of padding
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:1478: <= encrypt buf
+[00:00:05.600,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3032: output record: msgtype = 22, version = [3:3], msglen = 80
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2372: message length: 85, out_left: 85
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2379: ssl->f_send() returned 85 (-0xffffffab)
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2406: <= flush output
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3085: <= write record
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2909: <= write handshake message
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7955: <= write finished
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_CHANGE_CIPHER_SPEC
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5146: => parse change cipher spec
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5
+[00:00:05.600,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3930: <= handshake
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3919: => handshake
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_CHANGE_CIPHER_SPEC
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5146: => parse change cipher spec
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 5 (-0xfffffffb)
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input
+[00:00:06.080,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3869: input record: msgtype = 20, version = [0x303], msglen = 1
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 5, nb_want: 6
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 5, nb_want: 6
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 1 (-0xffffffff)
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4194: <= read record
+[00:00:06.080,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5167: switching to new transform spec for inbound data
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5194: <= parse change cipher spec
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_SERVER_FINISHED
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7968: => parse finished
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7688: => calc finished tls
+[00:00:06.080,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7715: dumping 'calc finished result' (12 bytes)
+[00:00:06.080,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7715: 0000:  67 03 b0 87 f7 0d 2a d3 a5 c6 90 a9              g.....*.....
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7719: <= calc finished
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 5 (-0xfffffffb)
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input
+[00:00:06.080,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3869: input record: msgtype = 22, version = [0x303], msglen = 80
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 5, nb_want: 85
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 5, nb_want: 85
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 80 (-0xffffffb0)
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input
+[00:00:06.080,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:1514: => decrypt buf
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2126: <= decrypt buf
+[00:00:06.090,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3242: handshake message: msglen = 16, type = 20, hslen = 16
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4194: <= read record
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:8038: <= parse finished
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_FLUSH_BUFFERS
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls12_client.c:3591: handshake: done
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2367: <= flush output
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3838: client state: MBEDTLS_SSL_HANDSHAKE_WRAPUP
+[00:00:06.090,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7792: => handshake wrapup
+[00:00:06.090,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7766: => handshake wrapup: final free
+[00:00:06.090,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7785: <= handshake wrapup: final free
+[00:00:06.090,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:7846: <= handshake wrapup
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_tls.c:3930: <= handshake
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5936: => write
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2948: => write record
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:0937: => encrypt buf
+[00:00:06.090,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:1308: before encrypt: msglen = 64, including 16 bytes of IV and 9 bytes of padding
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:1478: <= encrypt buf
+[00:00:06.090,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3032: output record: msgtype = 23, version = [3:3], msglen = 80
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2372: message length: 85, out_left: 85
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2379: ssl->f_send() returned 85 (-0xffffffab)
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2406: <= flush output
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3085: <= write record
+[00:00:06.090,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5958: <= write
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5676: => read
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 5 (-0xfffffffb)
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input
+[00:00:06.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3869: input record: msgtype = 23, version = [0x303], msglen = 64
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 5, nb_want: 69
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 5, nb_want: 69
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 64 (-0xffffffc0)
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:1514: => decrypt buf
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2126: <= decrypt buf
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4194: <= read record
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5855: <= read
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5676: => read
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5855: <= read
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5676: => read
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5855: <= read
+[00:00:06.590,000] <dbg> net_mqtts_client_sample: mqtt_event_cb: MQTT event: CONNACK [0] result: 0
+[00:00:06.590,000] <inf> net_mqtts_client_sample: Subscribing to 1 topic(s)
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5936: => write
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2948: => write record
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:0937: => encrypt buf
+[00:00:06.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:1308: before encrypt: msglen = 64, including 16 bytes of IV and 9 bytes of padding
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:1478: <= encrypt buf
+[00:00:06.590,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3032: output record: msgtype = 23, version = [3:3], msglen = 80
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2372: message length: 85, out_left: 85
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2379: ssl->f_send() returned 85 (-0xffffffab)
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2406: <= flush output
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3085: <= write record
+[00:00:06.590,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5958: <= write
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5676: => read
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4122: => read record
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 0, nb_want: 5
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 0, nb_want: 5
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 5 (-0xfffffffb)
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input
+[00:00:06.860,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3869: input record: msgtype = 23, version = [0x303], msglen = 64
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2160: => fetch input
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2300: in_left: 5, nb_want: 69
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2320: in_left: 5, nb_want: 69
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2323: ssl->f_recv(_timeout)() returned 64 (-0xffffffc0)
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2345: <= fetch input
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:1514: => decrypt buf
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2126: <= decrypt buf
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:4194: <= read record
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5855: <= read
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5676: => read
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5855: <= read
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5676: => read
+[00:00:06.860,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5855: <= read
+[00:00:06.860,000] <dbg> net_mqtts_client_sample: mqtt_event_cb: MQTT event: SUBACK [7] result: 0
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5936: => write
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2948: => write record
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:0937: => encrypt buf
+[00:00:06.870,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:1308: before encrypt: msglen = 64, including 16 bytes of IV and 14 bytes of padding
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:1478: <= encrypt buf
+[00:00:06.870,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3032: output record: msgtype = 23, version = [3:3], msglen = 80
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2372: message length: 85, out_left: 85
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2379: ssl->f_send() returned 85 (-0xffffffab)
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2406: <= flush output
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3085: <= write record
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5958: <= write
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5936: => write
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2948: => write record
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:0937: => encrypt buf
+[00:00:06.870,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:1308: before encrypt: msglen = 48, including 16 bytes of IV and 3 bytes of padding
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:1478: <= encrypt buf
+[00:00:06.870,000] <inf> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3032: output record: msgtype = 23, version = [3:3], msglen = 64
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2358: => flush output
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2372: message length: 69, out_left: 69
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2379: ssl->f_send() returned 69 (-0xffffffbb)
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:2406: <= flush output
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:3085: <= write record
+[00:00:06.870,000] <wrn> mbedtls: WEST_TOPDIR/modules/crypto/mbedtls/library/ssl_msg.c:5958: <= write
+[00:00:06.870,000] <inf> net_mqtts_client_sample: PUBLISHED on topic "espressif_1243" [ id: 1 qos: 0 ], payload: 13 B
+[00:00:06.870,000] <dbg> net_mqtts_client_sample: publish_message: Published payload:
+                                                  7b 22 63 6f 75 6e 74 65  72 22 3a 30 7d          |{"counte r":0}   
+uart:~$ qemu-system-i386: terminating on signal 2
+ninja: build stopped: interrupted by user.

@@ -3,9 +3,6 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-
-#include "dhcp.h"
-
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,23 +11,19 @@
 #include <zephyr/net/dns_resolve.h>
 #include <zephyr/net/mqtt.h>
 #include <zephyr/net/sntp.h>
-#include <zephyr/net/tls_credentials.h>
 #include <zephyr/data/json.h>
 #include <zephyr/random/random.h>
 #include <zephyr/posix/time.h>
-#include <zephyr/logging/log.h>
+
+#include <zephyr/shell/shell.h>
 
 #include "ca_certificate.h"
 
-#if defined(CONFIG_MBEDTLS_MEMORY_DEBUG)
-#include <mbedtls/memory_buffer_alloc.h>
-#endif
+#include <zephyr/logging/log.h>
+LOG_MODULE_REGISTER(net_mqtts_client_sample, LOG_LEVEL_DBG);
 
-LOG_MODULE_REGISTER(aws, LOG_LEVEL_DBG);
-
-#define SNTP_SERVER "ntp.aliyun.com"
-
-#define AWS_BROKER_PORT "8883"
+#define MQTT_BROKER_PORT "8883"
+#define MQTT_HOST_ENDPOINT "broker.emqx.io"
 
 #define MQTT_BUFFER_SIZE 256u
 #define APP_BUFFER_SIZE	 4096u
@@ -40,7 +33,7 @@ LOG_MODULE_REGISTER(aws, LOG_LEVEL_DBG);
 #define BACKOFF_EXP_MAX_MS  60000u
 #define BACKOFF_CONST_MS    5000u
 
-static struct sockaddr_in aws_broker;
+static struct sockaddr_in mqtt_broker;
 
 static uint8_t rx_buffer[MQTT_BUFFER_SIZE];
 static uint8_t tx_buffer[MQTT_BUFFER_SIZE];
@@ -48,7 +41,7 @@ static uint8_t buffer[APP_BUFFER_SIZE]; /* Shared between published and received
 
 static struct mqtt_client client_ctx;
 
-static const char mqtt_client_name[] = CONFIG_AWS_THING_NAME;
+static const char mqtt_client_name[] = "espressif";
 
 static uint32_t messages_received_counter;
 static bool do_publish;	  /* Trigger client to publish */
@@ -64,14 +57,14 @@ static int setup_credentials(void)
 {
 	int ret;
 
-	ret = tls_credential_add(CA_CERTIFICATE_TAG, TLS_CREDENTIAL_CA_CERTIFICATE,
-				 broker_emqx_io_ca_crt, sizeof(broker_emqx_io_ca_crt));
+	ret = tls_credential_add(CA_CERTIFICATE_TAG,
+					TLS_CREDENTIAL_SERVER_CERTIFICATE,
+					broker_emqx_io_ca_crt,
+					sizeof(broker_emqx_io_ca_crt));
 	if (ret < 0) {
 		LOG_ERR("Failed to add device certificate: %d", ret);
-		goto exit;
 	}
 
-exit:
 	return ret;
 }
 
@@ -79,9 +72,9 @@ static int subscribe_topic(void)
 {
 	int ret;
 	struct mqtt_topic topics[] = {{
-		.topic = {.utf8 = CONFIG_AWS_SUBSCRIBE_TOPIC,
-			  .size = strlen(CONFIG_AWS_SUBSCRIBE_TOPIC)},
-		.qos = CONFIG_AWS_QOS,
+		.topic = {.utf8 = "espressif_upload",
+			  .size = strlen("espressif_upload")},
+		.qos = 0,
 	}};
 	const struct mqtt_subscription_list sub_list = {
 		.list = topics,
@@ -110,7 +103,7 @@ static int publish_message(const char *topic, size_t topic_len, uint8_t *payload
 	msg.retain_flag = 0u;
 	msg.message.topic.topic.utf8 = topic;
 	msg.message.topic.topic.size = topic_len;
-	msg.message.topic.qos = CONFIG_AWS_QOS;
+	msg.message.topic.qos = 0;
 	msg.message.payload.data = payload;
 	msg.message.payload.len = payload_len;
 	msg.message_id = message_id++;
@@ -161,7 +154,7 @@ static ssize_t handle_published_message(const struct mqtt_publish_param *pub)
 		puback.message_id = pub->message_id;
 		mqtt_publish_qos1_ack(&client_ctx, &puback);
 	} break;
-	case MQTT_QOS_2_EXACTLY_ONCE: /* unhandled (not supported by AWS) */
+	case MQTT_QOS_2_EXACTLY_ONCE: /* nothing to do */
 	case MQTT_QOS_0_AT_MOST_ONCE: /* nothing to do */
 	default:
 		break;
@@ -170,7 +163,7 @@ static ssize_t handle_published_message(const struct mqtt_publish_param *pub)
 	return discarded ? -ENOMEM : received;
 }
 
-const char *mqtt_evt_type_to_str(enum mqtt_evt_type type)
+static const char *mqtt_evt_type_to_str(enum mqtt_evt_type type)
 {
 	static const char *const types[] = {
 		"CONNACK", "DISCONNECT", "PUBLISH", "PUBACK",	"PUBREC",
@@ -218,11 +211,11 @@ static void mqtt_event_cb(struct mqtt_client *client, const struct mqtt_evt *evt
 	}
 }
 
-static void aws_client_setup(void)
+static void mqtt_client_setup(void)
 {
 	mqtt_client_init(&client_ctx);
 
-	client_ctx.broker = &aws_broker;
+	client_ctx.broker = &mqtt_broker;
 	client_ctx.evt_cb = mqtt_event_cb;
 
 	client_ctx.client_id.utf8 = (uint8_t *)mqtt_client_name;
@@ -239,78 +232,34 @@ static void aws_client_setup(void)
 	client_ctx.tx_buf = tx_buffer;
 	client_ctx.tx_buf_size = MQTT_BUFFER_SIZE;
 
-	/* setup TLS */
 	client_ctx.transport.type = MQTT_TRANSPORT_SECURE;
+
 	struct mqtt_sec_config *const tls_config = &client_ctx.transport.tls.config;
 
-	tls_config->peer_verify = TLS_PEER_VERIFY_REQUIRED;
+	tls_config->peer_verify = TLS_PEER_VERIFY_NONE;
 	tls_config->cipher_list = NULL;
 	tls_config->sec_tag_list = sec_tls_tags;
 	tls_config->sec_tag_count = ARRAY_SIZE(sec_tls_tags);
-	tls_config->hostname = CONFIG_AWS_ENDPOINT;
+	tls_config->hostname = MQTT_HOST_ENDPOINT;
 	tls_config->cert_nocopy = TLS_CERT_NOCOPY_NONE;
 }
 
-struct backoff_context {
-	uint16_t retries_count;
-	uint16_t max_retries;
-
-#if defined(CONFIG_AWS_EXPONENTIAL_BACKOFF)
-	uint32_t attempt_max_backoff; /* ms */
-	uint32_t max_backoff;	      /* ms */
-#endif
-};
-
-static void backoff_context_init(struct backoff_context *bo)
-{
-	__ASSERT_NO_MSG(bo != NULL);
-
-	bo->retries_count = 0u;
-	bo->max_retries = MAX_RETRIES;
-
-#if defined(CONFIG_AWS_EXPONENTIAL_BACKOFF)
-	bo->attempt_max_backoff = BACKOFF_EXP_BASE_MS;
-	bo->max_backoff = BACKOFF_EXP_MAX_MS;
-#endif
-}
-
 /* https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/ */
-static void backoff_get_next(struct backoff_context *bo, uint32_t *next_backoff_ms)
-{
-	__ASSERT_NO_MSG(bo != NULL);
-	__ASSERT_NO_MSG(next_backoff_ms != NULL);
 
-#if defined(CONFIG_AWS_EXPONENTIAL_BACKOFF)
-	if (bo->retries_count <= bo->max_retries) {
-		*next_backoff_ms = sys_rand32_get() % (bo->attempt_max_backoff + 1u);
-
-		/* Calculate max backoff for the next attempt (~ 2**attempt) */
-		bo->attempt_max_backoff = MIN(bo->attempt_max_backoff * 2u, bo->max_backoff);
-		bo->retries_count++;
-	}
-#else
-	*next_backoff_ms = BACKOFF_CONST_MS;
-#endif
-}
-
-static int aws_client_try_connect(void)
+static int mqtt_client_try_connect(void)
 {
 	int ret;
-	uint32_t backoff_ms;
-	struct backoff_context bo;
+	int retry = 10;
 
-	backoff_context_init(&bo);
-
-	while (bo.retries_count <= bo.max_retries) {
+	while (retry > 0) {
+		LOG_DBG("retry:%d...", retry);
 		ret = mqtt_connect(&client_ctx);
 		if (ret == 0) {
 			goto exit;
 		}
 
-		backoff_get_next(&bo, &backoff_ms);
-
-		LOG_ERR("Failed to connect: %d backoff delay: %u ms", ret, backoff_ms);
-		k_msleep(backoff_ms);
+		LOG_ERR("Failed to connect: %d, delay: %u ms", ret, 5000);
+		k_sleep(K_MSEC(5000));
 	}
 
 exit:
@@ -325,25 +274,58 @@ static const struct json_obj_descr json_descr[] = {
 	JSON_OBJ_DESCR_PRIM(struct publish_payload, counter, JSON_TOK_NUMBER),
 };
 
-static int publish(void)
+static int example_publish_message(void)
 {
 	struct publish_payload pl = {.counter = messages_received_counter};
 
 	json_obj_encode_buf(json_descr, ARRAY_SIZE(json_descr), &pl, buffer, sizeof(buffer));
 
-	return publish_message(CONFIG_AWS_PUBLISH_TOPIC, strlen(CONFIG_AWS_PUBLISH_TOPIC), buffer,
+	return publish_message("espressif_1243", strlen("espressif_1243"), buffer,
 			       strlen(buffer));
 }
 
-void aws_client_loop(void)
+static int resolve_broker_addr(struct sockaddr_in *broker)
+{
+	int ret;
+	struct zsock_addrinfo *ai = NULL;
+
+	const struct zsock_addrinfo hints = {
+		.ai_family = AF_INET,
+		.ai_socktype = SOCK_STREAM,
+		.ai_protocol = 0,
+	};
+
+	ret = zsock_getaddrinfo(MQTT_HOST_ENDPOINT, MQTT_BROKER_PORT, &hints, &ai);
+	if (ret == 0) {
+		char addr_str[INET_ADDRSTRLEN];
+
+		memcpy(broker, ai->ai_addr, MIN(ai->ai_addrlen, sizeof(struct sockaddr_storage)));
+
+		zsock_inet_ntop(AF_INET, &broker->sin_addr, addr_str, sizeof(addr_str));
+		LOG_INF("Resolved: %s:%u", addr_str, htons(broker->sin_port));
+	} else {
+		LOG_ERR("failed to resolve hostname err = %d (errno = %d)", ret, errno);
+	}
+
+	zsock_freeaddrinfo(ai);
+
+	return ret;
+}
+
+static void mqtt_client_loop(void *arg1, void *arg2, void *arg3)
 {
 	int rc;
 	int timeout;
 	struct zsock_pollfd fds;
 
-	aws_client_setup();
+	setup_credentials();
 
-	rc = aws_client_try_connect();
+	int ret = resolve_broker_addr(&mqtt_broker);
+	LOG_INF("ret:%d", ret);
+
+	mqtt_client_setup();
+
+	rc = mqtt_client_try_connect();
 	if (rc != 0) {
 		goto cleanup;
 	}
@@ -380,7 +362,7 @@ void aws_client_loop(void)
 
 		if (do_publish) {
 			do_publish = false;
-			publish();
+			example_publish_message();
 		}
 
 		if (do_subscribe) {
@@ -396,80 +378,78 @@ cleanup:
 	fds.fd = -1;
 }
 
-int sntp_sync_time(void)
+K_THREAD_STACK_DEFINE(mqtts_thread_stack, 4096);
+static struct k_thread m_thread;
+static k_tid_t m_thread_id = NULL;
+
+static int _example_mqtts_connect(const struct shell *sh, size_t argc, char *argv[])
 {
-	int rc;
-	struct sntp_time now;
-	struct timespec tspec;
+    m_thread_id = k_thread_create(&m_thread,
+										mqtts_thread_stack,
+                     					4096,
+                     					(k_thread_entry_t)mqtt_client_loop,
+                     					NULL, NULL, NULL,
+                     					K_PRIO_PREEMPT( 1 ), 0, K_NO_WAIT );
 
-	rc = sntp_simple(SNTP_SERVER, SYS_FOREVER_MS, &now);
-	if (rc == 0) {
-		tspec.tv_sec = now.seconds;
-		tspec.tv_nsec = ((uint64_t)now.fraction * (1000lu * 1000lu * 1000lu)) >> 32;
+	if( m_thread_id != NULL )
+  	{
+    	k_thread_name_set(m_thread_id, "mqtt");
+  	}
+  	else
+  	{
+		LOG_ERR("mqtt thread create failed.");
+  	}
 
-		clock_settime(CLOCK_REALTIME, &tspec);
-
-		LOG_DBG("Acquired time from NTP server: %u", (uint32_t)tspec.tv_sec);
-	} else {
-		LOG_ERR("Failed to acquire SNTP, code %d\n", rc);
-	}
-	return rc;
+	return 0;
 }
 
-static int resolve_broker_addr(struct sockaddr_in *broker)
+static int _example_mqtts_disconnect(const struct shell *sh, size_t argc, char *argv[])
 {
-	int ret;
-	struct zsock_addrinfo *ai = NULL;
+	LOG_INF("mqtt thread entry:%p", m_thread_id);
+	if(m_thread_id != NULL)
+	{
+		int ret = k_thread_join(&m_thread, K_NO_WAIT);
 
-	const struct zsock_addrinfo hints = {
-		.ai_family = AF_INET,
-		.ai_socktype = SOCK_STREAM,
-		.ai_protocol = 0,
-	};
+		if(ret)
+		{
+			k_thread_abort(m_thread_id);
+			LOG_INF( "abort thread mqtt" );
+		}
 
-	ret = zsock_getaddrinfo(CONFIG_AWS_ENDPOINT, AWS_BROKER_PORT, &hints, &ai);
-	if (ret == 0) {
-		char addr_str[INET_ADDRSTRLEN];
+		mqtt_disconnect(&client_ctx);
 
-		memcpy(broker, ai->ai_addr, MIN(ai->ai_addrlen, sizeof(struct sockaddr_storage)));
-
-		zsock_inet_ntop(AF_INET, &broker->sin_addr, addr_str, sizeof(addr_str));
-		LOG_INF("Resolved: %s:%u", addr_str, htons(broker->sin_port));
-	} else {
-		LOG_ERR("failed to resolve hostname err = %d (errno = %d)", ret, errno);
-	}
-
-	zsock_freeaddrinfo(ai);
-
-	return ret;
-}
-
-int main(void)
-{
-#if defined(CONFIG_NET_DHCPV4)
-	app_dhcpv4_startup();
-#endif
-
-	sntp_sync_time();
-
-	setup_credentials();
-
-	for (;;) {
-		resolve_broker_addr(&aws_broker);
-
-		aws_client_loop();
-
-#if defined(CONFIG_MBEDTLS_MEMORY_DEBUG)
-		size_t cur_used, cur_blocks, max_used, max_blocks;
-
-		mbedtls_memory_buffer_alloc_cur_get(&cur_used, &cur_blocks);
-		mbedtls_memory_buffer_alloc_max_get(&max_used, &max_blocks);
-		LOG_INF("mbedTLS heap usage: MAX %u/%u (%u) CUR %u (%u)", max_used,
-			CONFIG_MBEDTLS_HEAP_SIZE, max_blocks, cur_used, cur_blocks);
-#endif
-
-		k_sleep(K_SECONDS(1));
+		m_thread_id = NULL;
 	}
 
 	return 0;
+}
+
+static int _example_mqtts_publish(const struct shell *sh, size_t argc, char *argv[])
+{
+	messages_received_counter++;
+	int ret = example_publish_message();
+	LOG_INF("ret:%d", ret);
+
+	return 0;
+}
+
+SHELL_STATIC_SUBCMD_SET_CREATE(z_mqtt_commands,
+	SHELL_CMD(connect, NULL,
+		"mqtt connect",
+		_example_mqtts_connect),
+	SHELL_CMD(disconnect, NULL,
+		"mqtt disconnect",
+		_example_mqtts_disconnect),
+	SHELL_CMD(publish, NULL,
+		"mqtt publish a message",
+		_example_mqtts_publish),
+	SHELL_SUBCMD_SET_END
+);
+
+SHELL_CMD_REGISTER(mqtts, &z_mqtt_commands,
+		   "example for zephyr mqtt", NULL);
+
+int main(void)
+{
+
 }
